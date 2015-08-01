@@ -1,0 +1,81 @@
+//Variables & Mixins
+
+$spacing-unit: 1rem;
+$half-spacing: $spacing-unit/2;
+$headlines: 'Bree Serif', Georgia, serif;
+$body-text: 'Open Sans', Helvetica, Arial, sans-serif;
+$brand-color: #edab23;
+$secondary-color: #0cb574;
+$dark-gray: #30373e;
+$font-size: 1em;
+$small-font: .75em;
+
+@mixin typography($font, $size) {
+  font-family: $font;
+  font-size: $size;
+}
+
+//Layout
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit;
+}
+
+//Typography
+
+h1 {
+  @include typography($headlines, 3em);
+}
+
+h2 {
+  @include typography($headlines, 2em);
+  color: $brand-color;
+}
+
+h3 {
+  @include typography($headlines, 1.25em);
+  color: $secondary-color;
+}
+
+p,a,li,input {
+  @include typography($body-text, 1em);
+  color: $dark-gray;
+}
+
+//Elements
+
+.btn-primary {
+  background: white;
+  border: 2px solid $dark-gray;
+  color: $dark-gray;
+  padding: $half-spacing;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $brand-color;
+  }
+}
+
+.breadcrumbs {
+  font-size: $small-font;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:before {
+    content: '«';
+  }
+}
+
+.cheese-image {
+  background: #EDEDED;
+  border: 1px solid #D0D0D0;
+  padding: 10px;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  img {
+    width: 100%;
+  }
+}

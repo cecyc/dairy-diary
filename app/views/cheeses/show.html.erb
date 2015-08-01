@@ -1,0 +1,19 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Back', cheeses_path, class: "breadcrumbs" %>
+
+  <h2><%= @cheese.name.capitalize %></h2>
+
+  <div class="cheese-image"><%= image_tag attachment_url(@cheese, :cheese_image, format: "jpg") %></div>
+
+  <h3>Thoughts</h3>
+  <p><%= @cheese.thoughts %></p>
+
+  <h3>Category</h3>
+  <p><%= @cheese.category.name %></p>
+
+  <h3>Date tasted</h3>
+  <p><%= @cheese.created_at.strftime("%b %d, %Y") %></p>
+
+<%= button_to 'Edit', edit_cheese_path(@cheese), class: "btn-primary" %>
+</div>
