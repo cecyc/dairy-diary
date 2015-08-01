@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'rails', '4.2.3'
 
 gem 'sass-rails', '~> 5.0'
@@ -31,6 +33,8 @@ gem 'figaro'
 gem 'faker'
 
 gem 'normalize-rails'
+
+gem 'rmagick', '~> 2.15.2'
 
 group :production do
   gem 'rails_12factor'
