@@ -36,6 +36,8 @@ gem 'normalize-rails'
 
 gem 'rmagick', '~> 2.15.2'
 
+gem 'materialize-sass'
+
 group :production do
   gem 'rails_12factor'
 end

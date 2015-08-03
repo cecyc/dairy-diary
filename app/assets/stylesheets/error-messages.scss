@@ -11,7 +11,13 @@ div {
 }
 
 #notice {
-  color: green;
+  color: $secondary-color;
+  text-transform: uppercase;
+}
+
+#alert {
+  color: #a70d10;
+  text-transform: uppercase;
 }
 
 .field_with_errors {
@@ -42,5 +48,13 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 750px) {
+  .container {
+    max-width: 800px;
   }
 }

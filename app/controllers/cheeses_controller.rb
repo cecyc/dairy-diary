@@ -3,6 +3,11 @@ class CheesesController < ApplicationController
 
   def index
     @cheeses = Cheese.all
+    if params[:search]
+      @cheeses = Cheese.search(params[:search]).order("created_at DESC")
+    else
+      @cheeses = Cheese.all.order('created_at DESC')
+    end
   end
 
   def show
@@ -36,6 +41,10 @@ class CheesesController < ApplicationController
   def destroy
     @cheese.destroy
     redirect_to cheeses_url, notice: 'Cheese was successfully destroyed.'
+  end
+
+  def latest
+    @latest_cheeses = Cheese.all.order(created_at: :desc).limit(5)
   end
 
   private

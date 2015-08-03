@@ -1,32 +1,21 @@
 <div class="container">
-
-<h2>Your cheeses</h2>
-
-
-
-<div class="cheese-search">
-  <%= form_tag(cheeses_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search cheeses" %>
-    <%= submit_tag "Search", class: "btn-primary" %>
-  <% end %>
+  <h2>Latest cheeses</h2>
+  <p>Showing the last 5 cheeses logged.</p>
+  <div class="new-entry">
+  <%= link_to 'New Entry', new_cheese_path, class: "btn-primary" %>
 </div>
-
-<% if @cheeses.present? %>
-  <% if @cheeses.count == 0 %>
+<% if @latest_cheeses.count == 0 %>
   <p>You haven't tried any cheeses! Try some cheese and add it below.</p>
 <% else %>
-  <% @cheeses.each do |cheese| %>
+  <% @latest_cheeses.each do |cheese| %>
     <div class="cheese-entry">
       <h3><%= link_to cheese.name.capitalize, cheese %></h3>
       <p class="category">Category: <%= link_to cheese.category.name, cheese.category %></p>
+      <p class="category">Date tried: <%= link_to cheese.created_at.strftime("%b %d, %Y"), cheese.category %></p>
       <%= image_tag attachment_url(cheese, :cheese_image, :fill, 200, 200, format: "jpg") %>
       <p><%= cheese.thoughts %></p>
     </div>
   <% end %>
 <% end %>
-<% else %>
-  <p>There are no cheeses containing the term(s) <%= params[:search] %>.</p>
-<% end %>
-
-
 </div>
+

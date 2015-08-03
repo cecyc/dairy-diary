@@ -17,11 +17,49 @@ $small-font: .75em;
 
 //Layout
 
+header {
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-bottom: $spacing-unit;
+    margin-top: $half-spacing;
+    margin-right: 5px;
+    text-transform: uppercase;
+
+    a {
+      border: 3px solid $dark-gray;
+      padding: 10px;
+    }
+    a:hover {
+      background: $brand-color;
+    }
+  }
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
   margin-bottom: $spacing-unit;
   padding: $spacing-unit;
+}
+
+.home-background {
+  background: url(food-bg-full.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 600px;
+  padding-top: 100px;
+}
+
+.home-container {
+  @extend .container;
+  background: rgba(255,255,255,0.75);
+  border-radius: 15px;
+  border: 1px solid #D0D0D0;
+  padding: $spacing-unit*2;
+  max-width: 655px;
+  text-align: center;
 }
 
 //Typography
@@ -35,14 +73,27 @@ h2 {
   color: $brand-color;
 }
 
+.home {
+  color: #a70d10;
+  font-size: 2em;
+}
+
 h3 {
   @include typography($headlines, 1.25em);
   color: $secondary-color;
+  a, a:visited {
+    color: $secondary-color;
+    text-transform: uppercase;
+  }
 }
 
 p,a,li,input {
   @include typography($body-text, 1em);
   color: $dark-gray;
+}
+
+a, a:hover, a:visited {
+  text-decoration: none;
 }
 
 //Elements
@@ -59,12 +110,22 @@ p,a,li,input {
   }
 }
 
+.btn-secondary {
+  @extend .btn-primary;
+  background: $dark-gray;
+  color: white;
+
+  &:hover {
+    background: lighten($dark-gray, 20%);
+  }
+}
+
 .breadcrumbs {
   font-size: $small-font;
   text-decoration: none;
   text-transform: uppercase;
   &:before {
-    content: '«';
+    content: '« ';
   }
 }
 
@@ -78,4 +139,59 @@ p,a,li,input {
   img {
     width: 100%;
   }
+}
+
+.cheese-entry {
+  border-bottom: 1px solid #D0D0D0;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.category {
+  font-size: $small-font;
+  text-transform: uppercase;
+  a, a:visited {
+    color: $secondary-color;
+  }
+}
+
+.show-footer {
+  margin-top: $spacing-unit*2;
+  margin-bottom: $spacing-unit*2;
+
+  .btn-primary {
+    margin-right: $spacing-unit;
+  }
+}
+
+//Forms
+
+label {
+  @include typography($body-text, $small-font);
+  color: $secondary-color;
+  text-transform: uppercase;
+}
+
+textarea {
+  height: 10rem;
+}
+
+.image-upload {
+  background: #EDEDED;
+  border: 1px solid #D0D0D0;
+  display: block;
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit;
+  text-align: center;
+}
+
+.form-footer {
+  margin-top: $spacing-unit*2;
+  margin-bottom: $spacing-unit*2;
+  text-align: center;
+}
+
+select {
+  display: block !important;
 }

@@ -21,10 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, class: "collection" %>
   </div>
-  <%= f.attachment_field :cheese_image %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="image-upload">
+    <%= f.attachment_field :cheese_image %>
+  </div>
+  <div class="form-footer">
+    <%= button_to "Submit", @cheese, class: "btn-primary" %>
   </div>
 <% end %>

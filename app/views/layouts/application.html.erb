@@ -8,12 +8,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="container">
+  <header>
     <h1>Dairy Diary</h1>
-    <a href="#">Latest cheeses</a>
-    <%= link_to "All cheeses", cheeses_path %>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to 'New Entry', new_cheese_path %></li>
+          <li><%= link_to "All cheeses", cheeses_path %></li>
+          <li><%= link_to "Latest", latest_cheeses_path %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    <% if notice %>
+      <p id="notice"><%= notice %></p><% end %>
+    <% if alert %>
+      <p id="alert"><%= alert %></p>
+    <% end %>
   </header>
-
 <%= yield %>
 
 </body>

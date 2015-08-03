@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Back', cheeses_path, class: "breadcrumbs" %>
+  <h2>All <%= @category.name.downcase %> cheeses</h2>
+  <% if @category.cheeses.count == 0 %>
+    <p>No cheeses match this category yet. Try more cheeses!</p>
+  <% else %>
+  <ul>
+    <% @category.cheeses.each do |cheese| %>
+        <li><%= link_to cheese.name.capitalize, cheese %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

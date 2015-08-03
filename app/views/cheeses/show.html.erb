@@ -1,5 +1,4 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
   <%= link_to 'Back', cheeses_path, class: "breadcrumbs" %>
 
   <h2><%= @cheese.name.capitalize %></h2>
@@ -10,10 +9,13 @@
   <p><%= @cheese.thoughts %></p>
 
   <h3>Category</h3>
-  <p><%= @cheese.category.name %></p>
+  <p><%= link_to @cheese.category.name, @cheese.category %></p>
 
   <h3>Date tasted</h3>
   <p><%= @cheese.created_at.strftime("%b %d, %Y") %></p>
 
-<%= button_to 'Edit', edit_cheese_path(@cheese), class: "btn-primary" %>
+  <div class="show-footer">
+    <%= link_to 'Edit', edit_cheese_path(@cheese), class: "btn-primary" %>
+    <%= link_to 'Destroy', @cheese, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-secondary" %>
+  </div>
 </div>
