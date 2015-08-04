@@ -11,13 +11,19 @@ div {
 }
 
 #notice {
+  background-color: lighten($secondary-color, 40%);
   color: $secondary-color;
   text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  padding: .5rem;
 }
 
 #alert {
+  @extend #notice;
+  background-color: lighten(#a70d10, 40%);
   color: #a70d10;
-  text-transform: uppercase;
 }
 
 .field_with_errors {

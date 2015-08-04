@@ -1,26 +1,26 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /categories
   def index
+    authenticate_user!
     @categories = Category.all
   end
 
-  # GET /categories/1
   def show
+    authenticate_user!
   end
 
-  # GET /categories/new
   def new
+    authenticate_user!
     @category = Category.new
   end
 
-  # GET /categories/1/edit
   def edit
+    authenticate_user!
   end
 
-  # POST /categories
   def create
+    authenticate_user!
     @category = Category.new(category_params)
 
     if @category.save
@@ -30,8 +30,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categories/1
   def update
+    authenticate_user!
     if @category.update(category_params)
       redirect_to @category, notice: 'Category was successfully updated.'
     else
@@ -39,8 +39,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
   def destroy
+    authenticate_user!
     @category.destroy
     redirect_to categories_url, notice: 'Category was successfully destroyed.'
   end
