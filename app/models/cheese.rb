@@ -3,7 +3,7 @@ class Cheese < ActiveRecord::Base
   belongs_to :category
 
   def self.search(search)
-    where("lower(name) ILIKE ? OR lower(thoughts) ILIKE ?", "%#{search}%", "%#{search}%")
+    where("name ILIKE ? OR thoughts ILIKE ?", "%#{search}%", "%#{search}%")
   end
 
 end
