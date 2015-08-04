@@ -16,7 +16,6 @@ class CheesesController < ApplicationController
   end
 
   def new
-    authenticate_user!
     @cheese = Cheese.new
   end
 
