@@ -1,3 +1,5 @@
+## Dairy Diary
+
 Dairy Diary is a project I built while at The Iron Yard Rails Engineering program.
 
 Dairy Diary is an personal cheese journal that allows you to keep track of cheeses you have tried.
@@ -10,7 +12,7 @@ You can:
 
 Only you have access to your "reviews." (This is not meant to be a yet another social media app, it is meant to be a private way to keep your thoughts together about cheese.)
 
-###Stuff I used
+### Stuff I used
 
 * Ruby on Rails as a framework
 * Deployed on Heroku
