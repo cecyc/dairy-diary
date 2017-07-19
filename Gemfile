@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.3.1'
 
 gem 'rails', '4.2.3'
 
@@ -16,7 +16,7 @@ gem 'turbolinks'
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'pg'
+gem 'pg', '0.20'
 
 gem 'puma'
 
